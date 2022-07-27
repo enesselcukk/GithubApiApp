@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/avatarFragment"
+        android:name="com.enesselcuk.githubapiapp.ui.AvatarFragment"
+        android:label="AvatarFragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.enesselcuk.githubapiapp.ui.DetailFragment"
+        android:label="DetailFragment" />
+    <fragment
+        android:id="@+id/listeningFragment"
+        android:name="com.enesselcuk.githubapiapp.ui.ListeningFragment"
+        android:label="ListeningFragment" >
+        <action
+            android:id="@+id/action_listeningFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.enesselcuk.githubapiapp.ui.search.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_listeningFragment"
+            app:destination="@id/listeningFragment" />
+    </fragment>
+</navigation>
