@@ -7,7 +7,7 @@
 
         <variable
             name="setData"
-            type="com.enesselcuk.githubapiapp.data.remote.model.Item" />
+            type="com.enesselcuk.githubapiapp.data.remote.model.searchModel.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,15 +41,6 @@
             app:layout_constraintStart_toEndOf="@id/image_avatar"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="avatar" />
-
-        <ImageView
-            android:id="@+id/image_favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_favorite_border"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/image_favorite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

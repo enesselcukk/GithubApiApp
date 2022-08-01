@@ -8,6 +8,10 @@
         <variable
             name="setUiState"
             type="com.enesselcuk.githubapiapp.ui.search.SearchUiState" />
+
+        <variable
+            name="searchClick"
+            type="com.enesselcuk.githubapiapp.ui.search.SearchFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,14 +24,19 @@
             android:id="@+id/searcView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="10dp"
             android:background="@drawable/line_search"
+            android:imeOptions="actionSearch"
+            android:inputType="textNoSuggestions"
             android:layoutDirection="rtl"
+            android:onClick="@{() -> searchClick.searchApi()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="@string/user_name"
             tools:ignore="MissingConstraints" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
@@ -41,25 +50,25 @@
             app:layout_constraintTop_toBottomOf="@id/searcView"
             tools:listitem="@layout/item_search" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="@{setUiState.progressBarVisibility}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{setUiState.progressBarVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{setUiState.getErrorMessage(context)}"
-            android:visibility="@{setUiState.getErrorVisibility}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressBar" />
+                <TextView
+                    android:id="@+id/text_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{setUiState.getErrorMessage(context)}"
+                    android:visibility="@{setUiState.getErrorVisibility}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

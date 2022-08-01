@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.paging.LoadState
 import com.enesselcuk.githubapiapp.R
 import com.enesselcuk.githubapiapp.common.BaseUiState
-import com.enesselcuk.githubapiapp.data.remote.model.Item
 
 data class SearchUiState(
     private val loadState: LoadState
@@ -20,4 +19,5 @@ data class SearchUiState(
         loadState.error.localizedMessage ?: context.getString(R.string.something_went_wrong)
     } else ""
 }
+
 

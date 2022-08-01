@@ -1,6 +1,11 @@
-package com.enesselcuk.githubapiapp.data.remote.model
+package com.enesselcuk.githubapiapp.data.local.favorite
 
-data class Item(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "favorite")
+data class FavoriteEntity(
+    @PrimaryKey val id: Int? = null,
     val avatar_url: String? = null,
     val events_url: String? = null,
     val followers_url: String? = null,
@@ -8,7 +13,6 @@ data class Item(
     val gists_url: String? = null,
     val gravatar_id: String? = null,
     val html_url: String? = null,
-    val id: Int? = null,
     val login: String? = null,
     val node_id: String? = null,
     val organizations_url: String? = null,
@@ -20,4 +24,7 @@ data class Item(
     val subscriptions_url: String? = null,
     val type: String? = null,
     val url: String? = null,
+    var liked: Boolean = false
+
+
 )

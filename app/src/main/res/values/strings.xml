@@ -7,4 +7,13 @@
     <string name="retry">retry</string>
     <string name="something_went_wrong">Something went wrong.</string>
     <string name="image_favorite">image_favorite</string>
+
+    <string name="name">Name : %s</string>
+    <string name="twitter">Twitter : %s</string>
+    <string name="bio">Bio : %s</string>
+    <string name="repository">Repository : %s</string>
+    <string name="location">Location: %s</string>
+    <string name="user_name">User name</string>
+    <string name="image_list_to_search">image_list_to_search</string>
+
 </resources>

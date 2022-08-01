@@ -2,30 +2,58 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/listeningFragment">
 
     <fragment
-        android:id="@+id/avatarFragment"
-        android:name="com.enesselcuk.githubapiapp.ui.AvatarFragment"
-        android:label="AvatarFragment" />
-    <fragment
         android:id="@+id/detailFragment"
-        android:name="com.enesselcuk.githubapiapp.ui.DetailFragment"
-        android:label="DetailFragment" />
+        android:name="com.enesselcuk.githubapiapp.ui.detail.DetailFragment"
+        android:label="DetailFragment">
+        <argument
+            android:name="detail"
+            app:argType="com.enesselcuk.githubapiapp.data.remote.model.searchModel.Item" />
+    </fragment>
     <fragment
         android:id="@+id/listeningFragment"
-        android:name="com.enesselcuk.githubapiapp.ui.ListeningFragment"
-        android:label="ListeningFragment" >
+        android:name="com.enesselcuk.githubapiapp.ui.list.ListeningFragment"
+        android:label="ListeningFragment">
         <action
             android:id="@+id/action_listeningFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/ListeningFragment"
+            app:popUpToInclusive="true"
+
+            />
+        <action
+            android:id="@+id/action_listeningFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/ListeningFragment"
+            app:popUpToInclusive="true"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.enesselcuk.githubapiapp.ui.search.SearchFragment"
-        android:label="SearchFragment" >
+        android:label="SearchFragment">
+
         <action
-            android:id="@+id/action_searchFragment_to_listeningFragment"
-            app:destination="@id/listeningFragment" />
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/ListeningFragment"
+            app:popUpToInclusive="true"
+
+            />
     </fragment>
 </navigation>

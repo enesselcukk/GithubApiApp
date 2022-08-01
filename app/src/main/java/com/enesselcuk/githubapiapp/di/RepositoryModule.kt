@@ -1,5 +1,6 @@
 package com.enesselcuk.githubapiapp.di
 
+import com.enesselcuk.githubapiapp.data.local.GithubDataBase
 import com.enesselcuk.githubapiapp.data.remote.service.GithubService
 import com.enesselcuk.githubapiapp.data.repos.GithubRepositoryImpl
 import com.enesselcuk.githubapiapp.domain.GithubRepos
@@ -19,13 +20,8 @@ object RepositoryModule {
     fun providesRepository(
         api: GithubService,
         dispatcher: CoroutineDispatcher,
-    ) = GithubRepositoryImpl(api, dispatcher)
-
-//    @Provides
-//    fun providesLocalRepository(
-//        dao: BasketDao,
-//        dispatcher: CoroutineDispatcher,
-//    ) = LocalBasketRepositoryImpl(dao, dispatcher)
+        database: GithubDataBase,
+        ) = GithubRepositoryImpl(api, dispatcher, database)
 
 }
 
@@ -35,12 +31,4 @@ interface Repos {
     @Binds
     fun basket(gameRepositoryImpl: GithubRepositoryImpl): GithubRepos
 }
-
-//@Module
-//@InstallIn(ViewModelComponent::class)
-//interface ReposLocal {
-//    @Binds
-//    fun basket(basketLocalRepositoryImpl: LocalBasketRepositoryImpl): LocalBasketRepos
-//
-//}
 
