@@ -19,7 +19,6 @@ class RemoteMediatorItem(
     private val database: GithubDataBase,
     private val query: String,
 ) : RemoteMediator<Int, Item>() {
-
     override suspend fun initialize(): InitializeAction {
         return InitializeAction.LAUNCH_INITIAL_REFRESH
     }
@@ -35,7 +34,6 @@ class RemoteMediatorItem(
             }
             LoadType.PREPEND -> {
                 val remoteKeys = getRemoteKeyForFirstItem(state)
-
                 val prevKey = remoteKeys?.prevKey
                     ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
                 prevKey
@@ -43,26 +41,20 @@ class RemoteMediatorItem(
             LoadType.APPEND -> {
                 val remoteKeys = getRemoteKeyForLastItem(state)
                 val nextKey = remoteKeys?.nextKey
-
                 nextKey
                     ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
-
                 nextKey
             }
         }
-
         try {
             val apiResponse = service.getSearch(query, page)
-
             val repos = apiResponse.items
             val endOfPaginationReached = repos?.isEmpty()
-
             database.withTransaction {
                 if (loadType == LoadType.REFRESH) {
                     database.remoteKeysDao().clearRemoteKeys()
                     database.githubDao().clearRepos()
                 }
-
                 val prevKey = if (page == GITHUB_STARTING_PAGE_INDEX) null else page.minus(1)
                 val nextKey = if ((endOfPaginationReached == true)) null else page.plus(1)
 
@@ -78,10 +70,7 @@ class RemoteMediatorItem(
                     database.githubDao().insertGithub(it)
                 }
             }
-
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached!!)
-
-
         } catch (exception: IOException) {
             return MediatorResult.Error(exception)
         } catch (exception: HttpException) {
@@ -94,7 +83,6 @@ class RemoteMediatorItem(
             ?.let {
                 database.remoteKeysDao().remoteKeysRepoId(it.id!!.toLong())
             }
-
     }
 
     private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, Item>): RemoteKeysEntity? {
@@ -115,5 +103,4 @@ class RemoteMediatorItem(
     companion object {
         const val GITHUB_STARTING_PAGE_INDEX = 1
     }
-
 }
