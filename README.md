@@ -47,5 +47,5 @@ The app uses [MVVM architecture][15] to have a unidirectional flow of data, sepa
 [17]: https://developer.android.com/kotlin/parcelize
 [18]: https://developer.android.com/kotlin/flow/stateflow-and-sharedflow
 [19]: https://developer.android.com/topic/libraries/architecture/livedata
-[20] https://developer.android.com/kotlin/flow/stateflow-and-sharedflow
-[21] https://developer.android.com/topic/libraries/architecture/paging/v3-overview
+[20]: https://developer.android.com/kotlin/flow/stateflow-and-sharedflow
+[21]: https://developer.android.com/topic/libraries/architecture/paging/v3-overview
