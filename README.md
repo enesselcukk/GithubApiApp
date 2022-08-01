@@ -27,6 +27,9 @@ The app uses [MVVM architecture][15] to have a unidirectional flow of data, sepa
 
 ![Architecture](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
+Prewiev
+---------------------------
+https://user-images.githubusercontent.com/52752443/182138947-7273afe1-1035-4e4c-a312-d5fd069fe3db.mp4
 
  [1]: https://www.balldontlie.io/#introduction
 [2]: https://developer.android.com/topic/architecture/intro
